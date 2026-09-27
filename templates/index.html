@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HealthRAG — Healthcare AI Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div class="brand">
+                <div class="logo">✚</div>
+
+                <div>
+                    <h1>HealthRAG</h1>
+                    <span>Healthcare Document Assistant</span>
+                </div>
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                RAG System Online
+            </div>
+
+        </header>
+
+
+        <!-- Main -->
+        <main class="main">
+
+            <section class="hero">
+
+                <div class="badge">
+                    AI • RAG • FAISS
+                </div>
+
+                <h2>
+                    Ask questions about
+                    <span>cardiovascular health</span>
+                </h2>
+
+                <p>
+                    Get answers from the healthcare document using
+                    semantic search and retrieval-augmented generation technology.
+                </p>
+
+            </section>
+
+
+            <!-- Question Card -->
+            <section class="question-card">
+
+                <label for="question">
+                    Your question
+                </label>
+
+                <textarea
+                    id="question"
+                    placeholder="e.g. What are the common risk factors for cardiovascular disease?"
+                ></textarea>
+
+                <div class="question-footer">
+
+                    <div class="hint">
+                        Press Ctrl + Enter to ask
+                    </div>
+
+                    <button id="askButton" onclick="askQuestion()">
+                        <span>Ask Assistant</span>
+                        <span class="arrow">→</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Suggested Questions -->
+            <section class="suggestions">
+
+                <h3>Try asking</h3>
+
+                <div class="suggestion-grid">
+
+                    <button onclick="setQuestion('What are the risk factors for cardiovascular disease?')">
+                        <span>❤️</span>
+                        What are the risk factors?
+                    </button>
+
+                    <button onclick="setQuestion('How can cardiovascular disease be prevented?')">
+                        <span>🛡️</span>
+                        How can it be prevented?
+                    </button>
+
+                    <button onclick="setQuestion('What are common warning symptoms?')">
+                        <span>⚠️</span>
+                        What are common symptoms?
+                    </button>
+
+                    <button onclick="setQuestion('Why is early detection important?')">
+                        <span>🔎</span>
+                        Why is early detection important?
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Loading -->
+            <div id="loading" class="loading">
+
+                <div class="loader"></div>
+
+                <div>
+                    <strong>Searching healthcare knowledge...</strong>
+                    <span>Finding the most relevant information</span>
+                </div>
+
+            </div>
+
+
+            <!-- Answer -->
+            <section id="answerSection" class="answer-section">
+
+                <div class="answer-header">
+
+                    <div class="answer-title">
+                        <div class="ai-icon">✦</div>
+
+                        <div>
+                            <h3>Assistant Response</h3>
+                            <span>Retrieved from your healthcare document</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="answer" class="answer"></div>
+
+            </section>
+
+
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+
+                <strong>Educational use only.</strong>
+
+                This application retrieves information from the provided
+                document and is not a medical diagnostic tool or a substitute
+                for professional medical advice.
+
+            </div>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer>
+
+            <span>HealthRAG</span>
+
+            <span>•</span>
+
+            <span>Python</span>
+
+            <span>•</span>
+
+            <span>Flask</span>
+
+            <span>•</span>
+
+            <span>FAISS</span>
+
+            <span>•</span>
+
+            <span>Sentence Transformers</span>
+
+        </footer>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
